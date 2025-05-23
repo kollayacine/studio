@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Lightbulb, PenSquare, ListChecks, BookOpen, Settings2, ArrowRight } from 'lucide-react';
+import { Lightbulb, PenSquare, ListChecks, BookOpen, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 
 const features = [
@@ -36,14 +36,6 @@ const features = [
     href: '/resource-directory',
     image: 'https://placehold.co/600x400.png',
     imageHint: 'library books',
-  },
-  {
-    title: 'Automation Blueprints',
-    description: 'Discover pre-built automation workflows to streamline your business operations.',
-    icon: Settings2,
-    href: '/automation-blueprints',
-    image: 'https://placehold.co/600x400.png',
-    imageHint: 'gears automation',
   },
 ];
 

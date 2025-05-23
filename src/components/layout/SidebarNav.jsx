@@ -16,8 +16,6 @@ import {
   PenSquare,
   ListChecks,
   BookOpen,
-  Zap,
-  Settings2, // Using Settings2 instead of Zap which might be too generic
 } from 'lucide-react';
 
 const navItems = [
@@ -26,7 +24,6 @@ const navItems = [
   { href: '/content-creator', label: 'Content Creator', icon: PenSquare },
   { href: '/progress-tracker', label: 'Progress Tracker', icon: ListChecks },
   { href: '/resource-directory', label: 'Resource Directory', icon: BookOpen },
-  { href: '/automation-blueprints', label: 'Automation Blueprints', icon: Settings2 },
 ];
 
 export default function SidebarNav({ setPageTitle }) {

@@ -1,30 +1,16 @@
-
-import { automationBlueprints } from '@/data/automationBlueprints';
-import BlueprintCard from '@/components/automation-blueprints/BlueprintCard';
-import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+// This page's content has been removed as the Automation Blueprints feature is no longer active.
+// You can manually delete this file and its containing folder if desired.
 
 export const metadata = {
-  title: 'Automation Blueprints | SmallBus AI',
-  description: 'Discover automation recipes to streamline your small business operations.',
+  title: 'Automation Blueprints (Removed) | SmallBus AI',
+  description: 'This feature has been removed.',
 };
 
 export default function AutomationBlueprintsPage() {
   return (
-    <div className="space-y-8">
-      <Card className="shadow-lg">
-        <CardHeader>
-          <CardTitle className="text-3xl">Automation Blueprints</CardTitle>
-          <CardDescription className="text-lg">
-            Save time and effort by automating repetitive tasks. Here are some ideas to get you started using various automation tools and platform features.
-          </CardDescription>
-        </CardHeader>
-      </Card>
-
-      <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
-        {automationBlueprints.map((blueprint, index) => (
-          <BlueprintCard key={index} blueprint={blueprint} />
-        ))}
-      </div>
+    <div className="container mx-auto py-8">
+      <h1 className="text-2xl font-semibold">Automation Blueprints (Feature Removed)</h1>
+      <p className="mt-4 text-muted-foreground">This feature is no longer available.</p>
     </div>
   );
 }
