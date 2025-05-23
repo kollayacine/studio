@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { initialTasks } from '@/data/progressTasks';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-// Checkbox and Label are no longer needed here for the removed part
 import { Progress } from '@/components/ui/progress';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { CheckSquare, Square } from 'lucide-react';
@@ -73,18 +72,30 @@ export default function ProgressTrackerClient() {
             <AccordionItem value={task.id} key={task.id} className="border-b border-border last:border-b-0">
               <AccordionTrigger
                 className="text-left hover:no-underline"
-                onClick={() => toggleTask(task.id)} // Task toggled here
+                // onClick removed from here: accordion trigger only handles expand/collapse
               >
                 <div className="flex items-center space-x-3 w-full">
-                  {task.completed ? <CheckSquare className="h-5 w-5 text-primary" /> : <Square className="h-5 w-5 text-muted-foreground" />}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevent accordion from toggling
+                      toggleTask(task.id);
+                    }}
+                    className="p-1 -m-1 rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1"
+                    aria-label={task.completed ? `Mark "${task.text}" as incomplete` : `Mark "${task.text}" as complete`}
+                  >
+                    {task.completed ? 
+                      <CheckSquare className="h-5 w-5 text-primary" /> : 
+                      <Square className="h-5 w-5 text-muted-foreground" />
+                    }
+                  </button>
                   <span className={`flex-1 text-md font-medium ${task.completed ? 'line-through text-muted-foreground' : 'text-foreground'}`}>
                     {index + 1}. {task.text}
                   </span>
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="pl-8 space-y-3">
+              <AccordionContent className="pl-11 pr-4 space-y-3"> {/* Adjusted pl to align with text */}
                 <p className="text-sm text-muted-foreground">{task.description}</p>
-                {/* Checkbox and Label removed from here */}
               </AccordionContent>
             </AccordionItem>
           ))}
