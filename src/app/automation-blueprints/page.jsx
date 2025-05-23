@@ -3,7 +3,7 @@ import BlueprintCard from '@/components/automation-blueprints/BlueprintCard';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 
 export const metadata = {
-  title: 'Automation Blueprints | BizPilot AI',
+  title: 'Automation Blueprints | SmallBus AI',
   description: 'Discover automation recipes to streamline your small business operations.',
 };
 

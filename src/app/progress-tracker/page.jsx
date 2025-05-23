@@ -1,7 +1,7 @@
 import ProgressTrackerClient from '@/components/progress-tracker/ProgressTrackerClient';
 
 export const metadata = {
-  title: 'Progress Tracker | BizPilot AI',
+  title: 'Progress Tracker | SmallBus AI',
   description: 'Track your business creation progress step-by-step.',
 };
 

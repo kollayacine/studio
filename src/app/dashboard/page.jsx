@@ -52,13 +52,13 @@ export default function DashboardPage() {
     <div className="space-y-8">
       <Card className="shadow-lg">
         <CardHeader>
-          <CardTitle className="text-3xl">Welcome to BizPilot AI!</CardTitle>
+          <CardTitle className="text-3xl">Welcome to SmallBus AI!</CardTitle>
           <CardDescription className="text-lg text-muted-foreground">
             Your smart assistant for launching and growing your digital business. Let&apos;s get started!
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <p>BizPilot AI provides you with AI-powered tools, step-by-step guidance, and curated resources to turn your entrepreneurial dreams into reality. Explore the features below to begin your journey.</p>
+          <p>SmallBus AI provides you with AI-powered tools, step-by-step guidance, and curated resources to turn your entrepreneurial dreams into reality. Explore the features below to begin your journey.</p>
         </CardContent>
       </Card>
 

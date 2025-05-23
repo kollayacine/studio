@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 /** @type {import('next').Metadata} */
 export const metadata = {
-  title: 'BizPilot AI',
+  title: 'SmallBus AI',
   description: 'Your AI assistant for small businesses, powered by Firebase and Genkit.',
 };
 

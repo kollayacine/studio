@@ -8,7 +8,7 @@ export default function AppLogo() {
         <Bot className="h-6 w-6 text-primary" />
       </div>
       <h1 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-        BizPilot AI
+        SmallBus AI
       </h1>
     </Link>
   );

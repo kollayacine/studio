@@ -3,7 +3,7 @@ import ResourceCard from '@/components/resource-directory/ResourceCard';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 
 export const metadata = {
-  title: 'Resource Directory | BizPilot AI',
+  title: 'Resource Directory | SmallBus AI',
   description: 'Curated list of free tools and resources for small businesses.',
 };
 

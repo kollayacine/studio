@@ -1,7 +1,7 @@
 import ContentCreatorForm from '@/components/content-creator/ContentCreatorForm';
 
 export const metadata = {
-  title: 'Content Creator | BizPilot AI',
+  title: 'Content Creator | SmallBus AI',
   description: 'Generate product descriptions and social media posts with AI.',
 };
 

@@ -1,7 +1,7 @@
 import IdeaGeneratorForm from '@/components/idea-generator/IdeaGeneratorForm';
 
 export const metadata = {
-  title: 'Idea Generator | BizPilot AI',
+  title: 'Idea Generator | SmallBus AI',
   description: 'Generate business ideas based on your interests and market trends.',
 };
 
