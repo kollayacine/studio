@@ -1,3 +1,4 @@
+
 import { Palette, BarChart3, Users, Mail, Zap, Type, Image as ImageIcon, BrainCircuit } from 'lucide-react';
 
 export const resourceCategories = [
@@ -39,10 +40,11 @@ export const resourceCategories = [
   },
   {
     name: 'Automation',
-    icon: Zap,
+    icon: Zap, // Retaining Zap icon as it generally represents automation
     resources: [
-      { name: 'Zapier', description: 'Connect your apps and automate workflows. Free tier available.', link: 'https://zapier.com/', tags: ['automation', 'integration', 'free tier'] },
+      // { name: 'Zapier', description: 'Connect your apps and automate workflows. Free tier available.', link: 'https://zapier.com/', tags: ['automation', 'integration', 'free tier'] }, // Removed Zapier
       { name: 'IFTTT', description: 'Simple automation tool for connecting various services.', link: 'https://ifttt.com/', tags: ['automation', 'free'] },
+      // Consider adding other Zapier alternatives if known, or platform-specific automation links
     ],
   }
 ];

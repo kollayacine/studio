@@ -1,7 +1,6 @@
+
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ArrowUpRight, Zap } from 'lucide-react';
 import Image from 'next/image';
 import {
   Accordion,
@@ -59,6 +58,7 @@ export default function BlueprintCard({ blueprint }) {
           </Accordion>
         )}
       </CardContent>
+      {/* Footer removed as it contained Zapier specific button 
       <CardFooter>
         <Button asChild variant="default" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
           <a href="https://zapier.com/" target="_blank" rel="noopener noreferrer">
@@ -66,6 +66,7 @@ export default function BlueprintCard({ blueprint }) {
           </a>
         </Button>
       </CardFooter>
+      */}
     </Card>
   );
 }

@@ -1,3 +1,4 @@
+
 import { automationBlueprints } from '@/data/automationBlueprints';
 import BlueprintCard from '@/components/automation-blueprints/BlueprintCard';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -14,7 +15,7 @@ export default function AutomationBlueprintsPage() {
         <CardHeader>
           <CardTitle className="text-3xl">Automation Blueprints</CardTitle>
           <CardDescription className="text-lg">
-            Save time and effort by automating repetitive tasks. Here are some ideas to get you started using tools like Zapier.
+            Save time and effort by automating repetitive tasks. Here are some ideas to get you started using various automation tools and platform features.
           </CardDescription>
         </CardHeader>
       </Card>
