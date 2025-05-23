@@ -5,11 +5,10 @@ import { useState, useEffect } from 'react';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { initialTasks } from '@/data/progressTasks';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Label } from '@/components/ui/label';
+// Checkbox and Label are no longer needed here for the removed part
 import { Progress } from '@/components/ui/progress';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckSquare, Square } from 'lucide-react'; // Updated icons
+import { CheckSquare, Square } from 'lucide-react';
 
 export default function ProgressTrackerClient() {
   const [tasks, setTasks] = useLocalStorage('bizpilot-progress-tasks', initialTasks);
@@ -72,9 +71,12 @@ export default function ProgressTrackerClient() {
         <Accordion type="single" collapsible className="w-full">
           {tasks.map((task, index) => (
             <AccordionItem value={task.id} key={task.id} className="border-b border-border last:border-b-0">
-              <AccordionTrigger className="text-left hover:no-underline">
+              <AccordionTrigger
+                className="text-left hover:no-underline"
+                onClick={() => toggleTask(task.id)} // Task toggled here
+              >
                 <div className="flex items-center space-x-3 w-full">
-                  {task.completed ? <CheckSquare className="h-5 w-5 text-primary" /> : <Square className="h-5 w-5 text-muted-foreground" />} {/* Updated icons */}
+                  {task.completed ? <CheckSquare className="h-5 w-5 text-primary" /> : <Square className="h-5 w-5 text-muted-foreground" />}
                   <span className={`flex-1 text-md font-medium ${task.completed ? 'line-through text-muted-foreground' : 'text-foreground'}`}>
                     {index + 1}. {task.text}
                   </span>
@@ -82,17 +84,7 @@ export default function ProgressTrackerClient() {
               </AccordionTrigger>
               <AccordionContent className="pl-8 space-y-3">
                 <p className="text-sm text-muted-foreground">{task.description}</p>
-                <div className="flex items-center space-x-2 pt-2">
-                  <Checkbox
-                    id={`task-${task.id}`}
-                    checked={task.completed}
-                    onCheckedChange={() => toggleTask(task.id)}
-                    aria-labelledby={`label-task-${task.id}`}
-                  />
-                  <Label htmlFor={`task-${task.id}`} id={`label-task-${task.id}`} className="text-sm font-medium cursor-pointer">
-                    Mark as {task.completed ? 'incomplete' : 'complete'}
-                  </Label>
-                </div>
+                {/* Checkbox and Label removed from here */}
               </AccordionContent>
             </AccordionItem>
           ))}
