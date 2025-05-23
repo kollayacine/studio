@@ -1,8 +1,9 @@
+
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Lightbulb, PenSquare, ListChecks, BookOpen, ArrowRight } from 'lucide-react';
-import Image from 'next/image';
+// Removed Image import
 
 const features = [
   {
@@ -10,32 +11,32 @@ const features = [
     description: 'Spark your next big idea with AI-powered suggestions based on your interests and market trends.',
     icon: Lightbulb,
     href: '/idea-generator',
-    image: 'https://placehold.co/600x400.png',
-    imageHint: 'innovation lightbulb',
+    // image: 'https://placehold.co/600x400.png', // Removed
+    // imageHint: 'innovation lightbulb', // Removed
   },
   {
     title: 'Content Creator',
     description: 'Generate compelling product descriptions and social media posts effortlessly with AI.',
     icon: PenSquare,
     href: '/content-creator',
-    image: 'https://placehold.co/600x400.png',
-    imageHint: 'writing content',
+    // image: 'https://placehold.co/600x400.png', // Removed
+    // imageHint: 'writing content', // Removed
   },
   {
     title: 'Progress Tracker',
     description: 'Stay on track with a guided checklist for your business journey. Celebrate milestones!',
     icon: ListChecks,
     href: '/progress-tracker',
-    image: 'https://placehold.co/600x400.png',
-    imageHint: 'checklist progress',
+    // image: 'https://placehold.co/600x400.png', // Removed
+    // imageHint: 'checklist progress', // Removed
   },
   {
     title: 'Resource Directory',
     description: 'Access a curated list of free tools and resources to help you build and grow your business.',
     icon: BookOpen,
     href: '/resource-directory',
-    image: 'https://placehold.co/600x400.png',
-    imageHint: 'library books',
+    // image: 'https://placehold.co/600x400.png', // Removed
+    // imageHint: 'library books', // Removed
   },
 ];
 
@@ -57,6 +58,7 @@ export default function DashboardPage() {
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {features.map((feature) => (
           <Card key={feature.title} className="flex flex-col overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+            {/* Image rendering removed
             <Image 
               src={feature.image} 
               alt={feature.title} 
@@ -65,6 +67,7 @@ export default function DashboardPage() {
               className="w-full h-48 object-cover"
               data-ai-hint={feature.imageHint}
             />
+            */}
             <CardHeader>
               <div className="flex items-center gap-3 mb-2">
                 <feature.icon className="w-8 h-8 text-primary" />
@@ -72,7 +75,7 @@ export default function DashboardPage() {
               </div>
               <CardDescription>{feature.description}</CardDescription>
             </CardHeader>
-            <CardContent className="mt-auto">
+            <CardContent className="mt-auto pt-4"> {/* Added pt-4 for spacing after removing image */}
               <Link href={feature.href} passHref>
                 <Button className="w-full" variant="default">
                   Go to {feature.title}
