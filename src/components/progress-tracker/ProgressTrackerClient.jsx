@@ -6,8 +6,9 @@ import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { initialTasks } from '@/data/progressTasks';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckSquare, Square } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem } from '@/components/ui/accordion';
+import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import { CheckSquare, Square, ChevronDown } from 'lucide-react';
 
 export default function ProgressTrackerClient() {
   const [tasks, setTasks] = useLocalStorage('bizpilot-progress-tasks', initialTasks);
@@ -70,31 +71,28 @@ export default function ProgressTrackerClient() {
         <Accordion type="single" collapsible className="w-full">
           {tasks.map((task, index) => (
             <AccordionItem value={task.id} key={task.id} className="border-b border-border last:border-b-0">
-              <AccordionTrigger
-                className="text-left hover:no-underline"
-                // onClick removed from here: accordion trigger only handles expand/collapse
-              >
-                <div className="flex items-center space-x-3 w-full">
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation(); // Prevent accordion from toggling
-                      toggleTask(task.id);
-                    }}
-                    className="p-1 -m-1 rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1"
-                    aria-label={task.completed ? `Mark "${task.text}" as incomplete` : `Mark "${task.text}" as complete`}
-                  >
-                    {task.completed ? 
-                      <CheckSquare className="h-5 w-5 text-primary" /> : 
-                      <Square className="h-5 w-5 text-muted-foreground" />
-                    }
-                  </button>
-                  <span className={`flex-1 text-md font-medium ${task.completed ? 'line-through text-muted-foreground' : 'text-foreground'}`}>
+              <AccordionPrimitive.Header className="flex items-center w-full">
+                <button
+                  type="button"
+                  onClick={() => toggleTask(task.id)}
+                  className="shrink-0 px-4 py-4 focus:outline-none focus-visible:ring-1 focus-visible:ring-ring rounded-l-md hover:bg-muted/50"
+                  aria-label={task.completed ? `Mark "${task.text}" as incomplete` : `Mark "${task.text}" as complete`}
+                >
+                  {task.completed ? 
+                    <CheckSquare className="h-5 w-5 text-primary" /> : 
+                    <Square className="h-5 w-5 text-muted-foreground" />
+                  }
+                </button>
+                <AccordionPrimitive.Trigger
+                  className="flex flex-1 items-center justify-between py-4 pr-4 font-medium transition-all text-left hover:no-underline focus:outline-none focus-visible:ring-1 focus-visible:ring-ring rounded-r-md [&[data-state=open]>svg]:rotate-180"
+                >
+                  <span className={`text-md font-medium ${task.completed ? 'line-through text-muted-foreground' : 'text-foreground'}`}>
                     {index + 1}. {task.text}
                   </span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="pl-11 pr-4 space-y-3"> {/* Adjusted pl to align with text */}
+                  <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 ml-2" />
+                </AccordionPrimitive.Trigger>
+              </AccordionPrimitive.Header>
+              <AccordionContent className="pl-14 pr-4 space-y-3"> {/* Adjusted pl for alignment */}
                 <p className="text-sm text-muted-foreground">{task.description}</p>
               </AccordionContent>
             </AccordionItem>
@@ -104,3 +102,4 @@ export default function ProgressTrackerClient() {
     </Card>
   );
 }
+
