@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -8,7 +9,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Progress } from '@/components/ui/progress';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle2, Circle } from 'lucide-react';
+import { CheckSquare, Square } from 'lucide-react'; // Updated icons
 
 export default function ProgressTrackerClient() {
   const [tasks, setTasks] = useLocalStorage('bizpilot-progress-tasks', initialTasks);
@@ -73,7 +74,7 @@ export default function ProgressTrackerClient() {
             <AccordionItem value={task.id} key={task.id} className="border-b border-border last:border-b-0">
               <AccordionTrigger className="text-left hover:no-underline">
                 <div className="flex items-center space-x-3 w-full">
-                  {task.completed ? <CheckCircle2 className="h-5 w-5 text-primary" /> : <Circle className="h-5 w-5 text-muted-foreground" />}
+                  {task.completed ? <CheckSquare className="h-5 w-5 text-primary" /> : <Square className="h-5 w-5 text-muted-foreground" />} {/* Updated icons */}
                   <span className={`flex-1 text-md font-medium ${task.completed ? 'line-through text-muted-foreground' : 'text-foreground'}`}>
                     {index + 1}. {task.text}
                   </span>
